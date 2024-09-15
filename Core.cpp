@@ -10,12 +10,13 @@ Core::Core(const std::vector<float>& m_resistance, const float m_u01, const floa
 }
 
 std::vector<std::vector<float>> Core::getDefaultMatrix() {
-    std::vector<float> line1 = { getVoltage(0), getVoltage(1), 0, 0 };
-    std::vector<float> line2 = { 0, -getVoltage(1), getVoltage(2), getVoltage(3) };
-    std::vector<float> line3 = { 1, -1, -1, 0 };
-    std::vector<float> line4 = { 0, 0, 1, -1 };
 
-    std::vector<std::vector<float>> matrix = { line1, line2, line3, line4 };
+    std::vector<float> row1 = { getVoltage(0), getVoltage(1), 0, 0 };
+    std::vector<float> row2 = { 0, -getVoltage(1), getVoltage(2), getVoltage(3) };
+    std::vector<float> row3 = { 1, -1, -1, 0 };
+    std::vector<float> row4 = { 0, 0, 1, -1 };
+
+    std::vector<std::vector<float>> matrix = { row1, row2, row3, row4 };
 
     return matrix;
 }

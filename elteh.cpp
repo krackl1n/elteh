@@ -8,7 +8,11 @@
 int main()
 {
     const std::vector<float> resistance = {14, 7, 17, 38};
-    int option = 13;
+
+    int option;
+
+    std::cout << "Option: " << std::endl;
+    std::cin >> option;
 
     Core core(resistance, option*19, option*11, option*6);
 
