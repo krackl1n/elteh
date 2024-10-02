@@ -5,7 +5,6 @@
 Core::Core(const std::vector<float>& m_resistance, const float m_u01, const float m_i03, const float m_i04)
 	: resistance(m_resistance), u01(m_u01), i03(m_i03), i04(m_i04) 
 {
-
 	solveSystem();
 }
 
@@ -42,7 +41,7 @@ std::vector<float> gaussElimination(std::vector<std::vector<float>>& A, std::vec
     int n = A.size();
 
     for (int i = 0; i < n; ++i) {
-        // Поиск максимального элемента для текущего столбца
+        // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         float maxEl = std::abs(A[i][i]);
         int maxRow = i;
         for (int k = i + 1; k < n; ++k) {
@@ -52,23 +51,23 @@ std::vector<float> gaussElimination(std::vector<std::vector<float>>& A, std::vec
             }
         }
 
-        // Перестановка строк (если необходимо)
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         if (i != maxRow) {
             std::swap(A[i], A[maxRow]);
             std::swap(b[i], b[maxRow]);
         }
 
-        // Обработка всех строк ниже текущей
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         for (int k = i + 1; k < n; ++k) {
             float factor = A[k][i] / A[i][i];
-            b[k] -= factor * b[i]; // Обновляем вектор b
+            b[k] -= factor * b[i]; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ b
             for (int j = i; j < n; ++j) {
                 A[k][j] -= factor * A[i][j];
             }
         }
     }
 
-    // Обратный ход
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
     std::vector<float> x(n);
     for (int i = n - 1; i >= 0; --i) {
         x[i] = b[i] / A[i][i];
