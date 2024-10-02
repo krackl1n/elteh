@@ -116,7 +116,6 @@ float Core::getAbsoluteError()
     summ += i03 * voltage[2];
     summ += i04 * voltage[3];
     summ -= u01 * amperage[0];
-
 	return summ;
 }
 
