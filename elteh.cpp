@@ -13,7 +13,7 @@ int main()
 
     std::cout << "Option: " << std::endl;
     std::cin >> option;
-    std::cout << "Hello, my friend. I special wrote this message" << std::endl;
+
     Core core(resistance, option*19, option*11, option*6);
 
     return 0;
